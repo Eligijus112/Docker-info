@@ -255,5 +255,14 @@ https://docs.docker.com/compose/django/
 
 To set up the restart policies in the docker-compose.yml file use the keyword **restart**.
 
+# Applications 
 
+## simple-container
 
+Running the application:
+
+```
+sudo docker build -t simple-app ./simple-container
+
+sudo docker run simple-app
+```
