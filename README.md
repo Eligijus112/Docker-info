@@ -1,5 +1,18 @@
 # Docker-info
+
 A project that houses various docker related information - definitions, codes, etc.
+
+# Applications 
+
+## simple-container
+
+Running the application:
+
+```
+sudo docker build -t simple-app ./simple-container
+
+sudo docker run simple-app
+```
 
 # Docker commands 
 
@@ -254,15 +267,3 @@ https://docs.docker.com/compose/django/
 **unless-stopped** - always restart unless the developer stops it.
 
 To set up the restart policies in the docker-compose.yml file use the keyword **restart**.
-
-# Applications 
-
-## simple-container
-
-Running the application:
-
-```
-sudo docker build -t simple-app ./simple-container
-
-sudo docker run simple-app
-```

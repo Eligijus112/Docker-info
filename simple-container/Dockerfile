@@ -7,5 +7,5 @@ WORKDIR /app
 # Copying the script to the container
 COPY ./hello.py ./ 
 
-# Running the 
+# Running the script
 CMD ["python", "hello.py"]
