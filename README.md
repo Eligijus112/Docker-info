@@ -141,6 +141,119 @@ docker build -t <image_tag> .
 After this build, to run a container a user can use not the unique id but the image tag name.
 
 ```
-docker run <image_tag>demy
+docker run <image_tag>
 
 ```
+
+# Copying build files to container
+
+When building an image, usually we want some files from our local computer to be copied to the container. To do this, in the dockerfile, 
+we can use the COPY command:
+
+```
+COPY ./ ./
+```
+
+The first **./** is a path to files on the local machine relative to the build index. 
+
+The second **./** is a path where the files will be placed inside the container.
+
+# Ports in docker 
+
+The definition of a port in computer science is the following: 
+
+*A port is a communication endpoint.* 
+
+Ports are identified for each protocol and address combination by 16-bit unsigned numbers. For example, :20, , :3000, :8080, etc.
+
+We can visualize a port as a somewhat API endpoint. We can have access to that endpoint and get some information back or we cannot.
+
+When a user created a docker container, the container can reach out to the outter world freely (like downloading packages) but to access the container, we need to explicitly route the port numbers of the local machine and the open port numbers in the docker container. 
+
+To run docker containers with port mappings we use the following template:
+
+```
+docker run -p <incoming_port> : <container_port> <image_id>
+```
+
+<incoming_port> - the port number of incoming requests from local machine.
+
+<container_port> - port number inside the container. 
+
+Example:
+
+```
+docker run -p 8080:8080 myimage
+```
+
+# Specifying a working directory in the container
+
+In the dockerfile we can specify the working directory where the files will be copied and all the commands executed. The kyeword for that is WORKDIR:
+
+```
+# Makes the working directory the usr default directories' /app folder
+WORKDIR /usr/app/
+```
+
+If any directory is not present in the container, docker will create it.
+
+# Docker compose
+
+To install docker-compose on your machine use the command:
+
+```
+sudo apt install docker-compose
+```
+
+Docker compose is used mainly to work with multiple containers and set up networking between them. It saves a lot of typing out commands using the docker-cli. 
+
+All the commands for docker-compose is stored in the file **docker-compose.yml.**
+
+## Building, running and stopping containers 
+
+Building containers:
+
+```
+# Dockerfile example
+docker build .
+<=>
+# Docker-compose example
+docker-compose build
+```
+
+Running containers:
+
+```
+# Dockerfile example
+docker run <myimage> 
+<=> 
+# Docker-compose example
+docker-compose up
+```
+
+Stopping all containers
+
+```
+docker-compose down 
+# OR 
+docker-compose stop
+```
+
+More commands and examples with python: 
+
+https://docs.docker.com/compose/django/
+
+# Restart policies 
+
+**"no"** - never restart containers under no circumstances.
+
+**always** - if the container stops **for any reason** restart it.
+
+**on-failure** - only restart when the container exits with an error code.
+
+**unless-stopped** - always restart unless the developer stops it.
+
+To set up the restart policies in the docker-compose.yml file use the keyword **restart**.
+
+
+
