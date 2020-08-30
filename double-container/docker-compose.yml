@@ -1,0 +1,14 @@
+# Version of compose to use
+version: "3"
+
+# Containers
+services:
+    # Container for data
+  redis-server:
+    image: "redis"
+    # Container for node app
+  node-app:
+    restart: always
+    build: .
+    ports:
+      - "8000:8000"

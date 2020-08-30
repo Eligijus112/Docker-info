@@ -14,6 +14,25 @@ sudo docker build -t simple-app ./simple-container
 sudo docker run simple-app
 ```
 
+
+The output is just a simple "Hello from the container"
+
+## double-container
+
+Running the application 
+
+```
+cd double-container 
+
+sudo docker-compuse up --build
+```
+
+The application stores the n-2 and n-1 members of the Fibonacci sequence and calculates the n-th member. 
+
+With each refresh of the page, the next member is calculated.
+
+To view the results go to **localhost:8000**. 
+
 # Docker commands 
 
 ## run
