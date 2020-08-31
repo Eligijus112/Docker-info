@@ -1,6 +1,8 @@
-# Docker-info
+# Application development with docker
 
 A project that houses various docker related information - definitions, codes, etc.
+
+Additionaly, technologies like redis, node.js, python are also present in the project.
 
 # Applications 
 
@@ -13,7 +15,6 @@ sudo docker build -t simple-app ./simple-container
 
 sudo docker run simple-app
 ```
-
 
 The output is just a simple "Hello from the container"
 
@@ -32,6 +33,32 @@ The application stores the n-2 and n-1 members of the Fibonacci sequence and cal
 With each refresh of the page, the next member is calculated.
 
 To view the results go to **localhost:8000**. 
+
+# Frontend commands
+
+The main technology to manage frontend that will be used in this project is node.js. 
+
+Node.js is an open source server environment and is completely free.
+
+For managing frontend a user can use the npm (node package manager) command to download, update, delete, deploy frontend packages. 
+
+```
+sudo apt install node
+
+sudo apt install npm 
+```
+
+## npm run start 
+
+Starts the development server.
+
+## npm run test 
+
+Runs tests associated with the project.
+
+## npm run build 
+
+Builds a production version of the application.
 
 # Docker commands 
 
