@@ -313,3 +313,18 @@ https://docs.docker.com/compose/django/
 **unless-stopped** - always restart unless the developer stops it.
 
 To set up the restart policies in the docker-compose.yml file use the keyword **restart**.
+
+# Docker volumes
+
+Volumes are stored in a part of the host filesystem which is managed by Docker (/var/lib/docker/volumes/ on Linux). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
+
+Docker volumes are used as references for files on the local machine so as to any change made to any of the files on the local machine gets immedeatly changed in the docker container.
+
+The command to create a volume alongside a container is rather cumbersome: 
+
+```
+docker run -p 3000:300 -v /app/node_modules -v $(pwd):/app <image_id>
+```
+
+# Nginx in docker 
+
