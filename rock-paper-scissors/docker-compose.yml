@@ -1,6 +1,27 @@
 version: '3'
 services:
-    app:
-        build: .
+    # Backend python flask application
+    backend:
+        build: 
+            context: . 
+            dockerfile: Dockerfile.backend
         ports: 
-            - "5000:5000"
+            - 5000:5000
+        volumes: 
+            - ./backend-python:/app
+        restart:
+            always
+    # Frontend react application
+    frontend:
+        build: 
+            context: . 
+            dockerfile: Dockerfile.frontend
+        ports:
+            - 3000:3000
+        volumes:
+            - ./frontend-react:/app
+            - /app/node_modules
+        depends_on: 
+            - backend
+        stdin_open: 
+            true

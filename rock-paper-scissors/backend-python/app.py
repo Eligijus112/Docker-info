@@ -10,6 +10,11 @@ game = GameEngine()
 # Initiating the app object 
 app = Flask(__name__)
 
+# Initial endpoint
+@app.route('/')
+def home():
+    return "Welcome to the rock paper scissors game!!!"
+
 # Endpoint for the game 
 @app.route('/game')
 def rps_game():
@@ -30,4 +35,6 @@ def rps_game():
 
 # Running the application
 if __name__ == '__main__':
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(host='0.0.0.0')
