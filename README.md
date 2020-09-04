@@ -34,6 +34,10 @@ With each refresh of the page, the next member is calculated.
 
 To view the results go to **localhost:8000**. 
 
+## rock-paper-scissors
+
+An application that combines python backend, react frontend and a postgre database for a game of rock paper scissors.0
+
 # Frontend commands
 
 The main technology to manage frontend that will be used in this project is node.js. 

@@ -1,37 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Sign from './components/Sign';
+
+// Importing logos for signs 
+import rock from './rock.svg'
+import paper from './paper.svg'
+import scissors from './scissors.svg'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Welcome to the rock paper scissors game! 
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
 
-      <div className="Sign">
-        <Sign name='Rock' />  
+      <div className="Signs">
+        <div className="Sign">
+          <Sign name='Rock' logo={rock} />  
+        </div>
+
+        <div className="Sign">
+          <Sign name='Paper' logo={paper}/>  
+        </div>
+
+        <div className="Sign">
+          <Sign name='Scissors' logo={scissors}/>  
+        </div>
       </div>
 
-      <div className="Sign">
-        <Sign name='Paper' />  
-      </div>
-
-      <div className="Sign">
-        <Sign name='Scissors' />  
-      </div>
     </div>
   );
 }
