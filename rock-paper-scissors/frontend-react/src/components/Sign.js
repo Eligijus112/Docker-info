@@ -1,5 +1,6 @@
 // Importing the react class for componnet building
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 // Defining the sign class
 class Sign extends React.Component {
@@ -14,11 +15,14 @@ class Sign extends React.Component {
     }
 
     render() {
-        
         return (
             <div>
-                {this.state.signName}
-                <img src={this.state.logo} alt={this.state.signName} onClick={this.onClick}/> 
+                <div className='signName'>
+                    {this.state.signName}
+                </div>
+                <Button onClick={this.onClick}>
+                    <img src={this.state.logo} alt={this.state.signName}/> 
+                </Button>
             </div>
             )
     }

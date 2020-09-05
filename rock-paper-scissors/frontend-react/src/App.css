@@ -20,11 +20,25 @@
 
 .Sign {
   padding: 1rem;
-  max-width: 60px;
-  max-height: 60px;
   top: 0;
 }
 
 .Sign img {
-  max-height: 20rem;
+  height: 4rem;
+  width: 4rem;
+  padding: 0.5rem;
+}
+
+.Sign button:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.signName {
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.subHeader {
+  font-weight: 600;
 }

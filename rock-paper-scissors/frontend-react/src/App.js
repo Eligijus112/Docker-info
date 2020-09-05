@@ -1,3 +1,4 @@
+// Importing the components for the App
 import React from 'react';
 import './App.css';
 import Sign from './components/Sign';
@@ -15,6 +16,10 @@ function App() {
           Welcome to the rock paper scissors game! 
         </p>
       </header>
+      
+      <div className="subHeader">
+        <p> Select a sign and go head to head against the AI! </p>
+      </div>
 
       <div className="Signs">
         <div className="Sign">
