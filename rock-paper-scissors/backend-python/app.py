@@ -1,5 +1,6 @@
 # Importing flask for API creation
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 # Importing the game engine
 from GameEngine import GameEngine 
@@ -9,6 +10,9 @@ game = GameEngine()
 
 # Initiating the app object 
 app = Flask(__name__)
+
+# Enabling CORS
+CORS(app)
 
 # Initial endpoint
 @app.route('/')
@@ -24,6 +28,9 @@ def rps_game():
     # Getting the user outcome
     user_outcome = request.args.get("outcome")
 
+    # Ensuring lowercase
+    user_outcome = user_outcome.lower()
+
     # Generating outcome for the computer
     computer_outcome = game.generate_outcome()
 
@@ -31,7 +38,10 @@ def rps_game():
     final_outcome = game.compare_outcomes(computer_outcome, user_outcome)
 
     # Returning a json with the outcome
-    return jsonify(final_outcome)
+    return jsonify({
+        'outcome': final_outcome,
+        'computer_sign': computer_outcome
+    })
 
 # Running the application
 if __name__ == '__main__':
