@@ -20,11 +20,31 @@ class Sign extends React.Component {
     playGame = () => {
         axios.get('http://localhost:5000/game?outcome=' + this.state.signName).then(
             res => this.state.dispatch({
-                type: "SET_SIGNS", 
+                type: "SET_SIGNS",
                 signUser: this.state.signName,
                 signAI: res.data.computer_sign,
                 outcome: res.data.outcome
             })
+        ).then(
+            res => {
+                if (res.outcome === 1) {
+                    this.state.dispatch({
+                        type: 'INCREMENT_USER_WINS'
+                    })
+                }
+
+                if (res.outcome === 0) {
+                    this.state.dispatch({
+                        type: 'INCREMENT_DRAWS'
+                    })
+                }
+
+                if (res.outcome === -1) {
+                    this.state.dispatch({
+                        type: 'INCREMENT_AI_WINS'
+                    })
+                }
+            }
         )
     }
 
@@ -35,10 +55,10 @@ class Sign extends React.Component {
                     {this.state.signName}
                 </div>
                 <Button onClick={this.playGame}>
-                    <img src={this.state.logo} alt={this.state.signName}/> 
+                    <img src={this.state.logo} alt={this.state.signName} />
                 </Button>
             </div>
-            )
+        )
     }
 }
 

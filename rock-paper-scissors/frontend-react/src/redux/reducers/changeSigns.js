@@ -1,19 +1,19 @@
 const defaultState = {
-    signUser: null, 
+    signUser: null,
     signAI: null,
     outcome: 0
 }
 
-function changeSigns(state = defaultState, action){
-    switch(action.type){
+function changeSigns(state = defaultState, action) {
+    switch (action.type) {
         case "SET_SIGNS":
             return {
-                ...state, 
+                ...state,
                 signUser: action.signUser,
                 signAI: action.signAI,
                 outcome: action.outcome
             }
-        default: 
+        default:
             return state
     }
 }

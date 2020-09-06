@@ -13,38 +13,45 @@ import scissors from './scissors.svg'
 import { connect } from 'react-redux';
 
 class App extends Component {
-  
-  render(){
-    
+
+  render() {
+
     return (
       <div className="App">
         <header className="App-header">
           <p>
-            Welcome to the rock paper scissors game! 
+            Welcome to the rock paper scissors game!
           </p>
         </header>
-        
+
         <div className="subHeader">
           <p> Select a sign and go head to head against the AI! </p>
         </div>
 
         <div className="Signs">
           <div className="Sign">
-            <Sign name='Rock' logo={rock} dispatch={this.props.dispatch}/>  
+            <Sign name='Rock' logo={rock} dispatch={this.props.dispatch} />
           </div>
 
           <div className="Sign">
-            <Sign name='Paper' logo={paper} dispatch={this.props.dispatch}/>  
+            <Sign name='Paper' logo={paper} dispatch={this.props.dispatch} />
           </div>
 
           <div className="Sign">
-            <Sign name='Scissors' logo={scissors} dispatch={this.props.dispatch}/>  
+            <Sign name='Scissors' logo={scissors} dispatch={this.props.dispatch} />
           </div>
         </div>
-        
-        <div className="Outcome"> 
-          {console.log(this.props)}
-          <Outcome signAI={this.props.signAI} signUser={this.props.signUser} outcome={this.props.outcome}/>
+
+        <div className="Outcome">
+          <Outcome
+            signAI={this.props.signAI}
+            signUser={this.props.signUser}
+            outcome={this.props.outcome}
+            winsUser={this.props.winsUser}
+            winsAI={this.props.winsAI}
+            draws={this.props.draws}
+            totalMatches={this.props.totalMatches}
+          />
         </div>
       </div>
     );
@@ -52,11 +59,16 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  if(state.changeSigns.signUser && state.changeSigns.signAI){
+  console.log(state.changeScore)
+  if (state.changeSigns.signUser && state.changeSigns.signAI) {
     return {
-      signAI: state.changeSigns.signAI, 
+      signAI: state.changeSigns.signAI,
       signUser: state.changeSigns.signUser,
-      outcome: state.changeSigns.outcome
+      outcome: state.changeSigns.outcome,
+      winsAI: state.changeScore.winsAI,
+      winsUser: state.changeScore.winsUser,
+      draws: state.changeScore.draws,
+      totalMatches: state.changeScore.totalMatches
     }
   }
 };
