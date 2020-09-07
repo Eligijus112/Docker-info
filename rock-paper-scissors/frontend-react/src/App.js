@@ -59,7 +59,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.changeScore)
   if (state.changeSigns.signUser && state.changeSigns.signAI) {
     return {
       signAI: state.changeSigns.signAI,
