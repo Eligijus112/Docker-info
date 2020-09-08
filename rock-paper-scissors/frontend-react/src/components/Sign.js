@@ -8,6 +8,10 @@ import axios from 'axios';
 // Global store
 import { connect } from 'react-redux'
 
+// Loading .env parameters
+const host_site = process.env.REACT_APP_HOST
+const port = process.env.REACT_APP_BACKEND_PORT
+
 // Defining the sign class
 class Sign extends React.Component {
 
@@ -18,7 +22,7 @@ class Sign extends React.Component {
     }
 
     playGame = () => {
-        axios.get('http://localhost:5000/game?outcome=' + this.state.signName).then(
+        axios.get('http://' + host_site + ':' + port + '/game?outcome=' + this.state.signName).then(
             res => this.state.dispatch({
                 type: "SET_SIGNS",
                 signUser: this.state.signName,
