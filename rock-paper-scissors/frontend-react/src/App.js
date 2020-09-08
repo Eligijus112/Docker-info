@@ -59,7 +59,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  if (state.changeSigns.signUser && state.changeSigns.signAI) {
+  if (
+    state.changeSigns.signUser && 
+    state.changeSigns.signAI && 
+    state.changeScore.totalMatches) {
     return {
       signAI: state.changeSigns.signAI,
       signUser: state.changeSigns.signUser,

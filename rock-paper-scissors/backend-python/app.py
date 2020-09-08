@@ -2,8 +2,19 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
+# ENV variables
+from dotenv import load_dotenv
+
 # Importing the game engine
 from GameEngine import GameEngine 
+
+# File paths
+import os
+
+# Loading the dotenv file
+APP_ROOT = os.path.join(os.path.dirname(__file__))
+dotenv_path = os.path.join(APP_ROOT, '.env')
+load_dotenv(dotenv_path)
 
 # Initiating the game engine in memory
 game = GameEngine()
@@ -45,6 +56,4 @@ def rps_game():
 
 # Running the application
 if __name__ == '__main__':
-    app.jinja_env.auto_reload = True
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(host='0.0.0.0')
+    app.run(host=os.getenv("HOST"), port=os.getenv("PORT"))
