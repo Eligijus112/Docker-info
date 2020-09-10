@@ -10,5 +10,5 @@ COPY ./backend-python .
 # Installing the dependencies
 RUN pip install -r requirements.txt
 
-# Running the command 
-CMD ["gunicorn", "-c", "python:config.gunicorn", "wsgi:app"]
+# Overriding the default command
+CMD ["python", "app.py"]

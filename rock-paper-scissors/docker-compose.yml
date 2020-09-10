@@ -7,8 +7,6 @@ services:
             dockerfile: Dockerfile.backend
         ports: 
             - 5000:5000
-        volumes: 
-            - ./backend-python:/app
         restart:
             always
     # Frontend react application
